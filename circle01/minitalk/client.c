@@ -10,15 +10,15 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "minitalk.h"
-
+#include "./minitalk.h"
+#include <signal.h>
 
 static void ft_action(int sig)
 {
 	static	int	received;
 	
 	received = 0;
-	
+
 	if (sig == SIGUSR1)
 		received++;
 	else
@@ -60,8 +60,8 @@ int		main(int argc, char *argv[])
 		return (0);
 	printf("Sent     : %d", argv[2]);
 	printf("Received : ");
-	signal(SIGUSR1, action);
-	signal(SIGUSR2, action);
+	signal(SIGUSR1, ft_action);
+	signal(SIGUSR2, ft_action);
 	ft_kill(atoi(argv[1]), argv[2]);
 	while (1)
 		pause();
