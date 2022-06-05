@@ -1,16 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   minitalk.h                                         :+:      :+:    :+:   */
+/*   ft_isprint.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kyoon <kyoon@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/06/05 14:31:04 by kyoon             #+#    #+#             */
-/*   Updated: 2022/06/05 15:10:12 by kyoon            ###   ########.fr       */
+/*   Created: 2021/05/09 16:08:31 by kyoon             #+#    #+#             */
+/*   Updated: 2021/05/09 16:11:32 by kyoon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <signal.h>
-#include <stdlib.h>
-#include <unistd.h>
-#include "./libft/libft.h"
+int	ft_isprint(int c)
+{
+	if (32 <= c && c <= 126)
+		return (1);
+	else
+		return (0);
+}

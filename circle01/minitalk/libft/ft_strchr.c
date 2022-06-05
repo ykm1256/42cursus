@@ -1,16 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   minitalk.h                                         :+:      :+:    :+:   */
+/*   ft_strchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kyoon <kyoon@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/06/05 14:31:04 by kyoon             #+#    #+#             */
-/*   Updated: 2022/06/05 15:10:12 by kyoon            ###   ########.fr       */
+/*   Created: 2021/05/08 17:13:29 by kyoon             #+#    #+#             */
+/*   Updated: 2021/05/13 14:10:22 by kyoon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <signal.h>
-#include <stdlib.h>
-#include <unistd.h>
-#include "./libft/libft.h"
+char	*ft_strchr(const char *str, int c)
+{
+	while (*str)
+	{
+		if (*str == (char)c)
+			return ((char *)str);
+		str++;
+	}
+	if ((char)c == 0)
+		return ((char *)str);
+	return (0);
+}

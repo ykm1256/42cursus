@@ -1,16 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   minitalk.h                                         :+:      :+:    :+:   */
+/*   ft_toupper.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kyoon <kyoon@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/06/05 14:31:04 by kyoon             #+#    #+#             */
-/*   Updated: 2022/06/05 15:10:12 by kyoon            ###   ########.fr       */
+/*   Created: 2021/05/09 16:11:51 by kyoon             #+#    #+#             */
+/*   Updated: 2021/05/09 16:16:21 by kyoon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <signal.h>
-#include <stdlib.h>
-#include <unistd.h>
-#include "./libft/libft.h"
+int	ft_toupper(int c)
+{
+	if ('a' <= c && c <= 'z')
+		return (c - 32);
+	return (c);
+}

@@ -1,16 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   minitalk.h                                         :+:      :+:    :+:   */
+/*   ft_tolower.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kyoon <kyoon@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/06/05 14:31:04 by kyoon             #+#    #+#             */
-/*   Updated: 2022/06/05 15:10:12 by kyoon            ###   ########.fr       */
+/*   Created: 2021/05/09 16:14:16 by kyoon             #+#    #+#             */
+/*   Updated: 2021/05/09 16:16:32 by kyoon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <signal.h>
-#include <stdlib.h>
-#include <unistd.h>
-#include "./libft/libft.h"
+int	ft_tolower(int c)
+{
+	if ('A' <= c && c <= 'Z')
+		return (c + 32);
+	return (c);
+}
