@@ -16,7 +16,6 @@ static void	ft_action(int sig)
 {
 	static int	received;
 
-	received = 0;
 	if (sig == SIGUSR1)
 		received++;
 	else
