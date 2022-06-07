@@ -6,11 +6,11 @@
 #    By: kyoon <kyoon@student.42seoul.kr>           +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/05/14 16:03:31 by kyoon             #+#    #+#              #
-#    Updated: 2021/05/14 16:03:32 by kyoon            ###   ########.fr        #
+#    Updated: 2022/06/06 21:02:28 by kyoon            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-CC = gcc
+CC = cc
 CFLAGS = -Wall -Wextra -Werror -c
 NAME = libft.a
 SOURCES = ./ft_memset.c\
@@ -72,7 +72,7 @@ endif
 $(NAME): $(C_OBJECTS)
 	ar -cr $@ $^
 
-all: bonus $(NAME)
+all: $(NAME)
 
 %.o: %.c
 	$(CC) $(CFLAGS) $< -o $@
