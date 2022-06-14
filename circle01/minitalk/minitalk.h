@@ -6,9 +6,14 @@
 /*   By: kyoon <kyoon@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/06 17:38:04 by kyoon             #+#    #+#             */
-/*   Updated: 2022/06/06 21:14:04 by kyoon            ###   ########.fr       */
+/*   Updated: 2022/06/07 19:52:31 by kyoon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#ifndef MINITALK_H
+#define MINITALK_H
+
 #include <signal.h>
 #include "./libft/libft.h"
+
+#endif

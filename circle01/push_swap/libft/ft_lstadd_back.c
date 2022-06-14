@@ -1,29 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   ft_lstadd_back.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kyoon <kyoon@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/05/25 18:14:03 by kyoon             #+#    #+#             */
-/*   Updated: 2022/06/14 14:58:44 by kyoon            ###   ########.fr       */
+/*   Created: 2021/05/10 20:22:14 by kyoon             #+#    #+#             */
+/*   Updated: 2021/05/13 22:17:22 by kyoon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "./pushswap.h"
+#include "libft.h"
 
-void	ft_init(char argv**, t_stack_info info, t_stack stack)
+void	ft_lstadd_back(t_list **lst, t_list *new)
 {
-	
-}
+	t_list	*tmp;
 
-int	main(int argc, char *argv[])
-{
-	t_stack	*a;
-	t_stack	*b;
-	t_stack_info	info;
-
-
-
-	return 0;
+	tmp = *lst;
+	if (!lst || !new)
+		return ;
+	if (!(*lst))
+		*lst = new;
+	else
+	{
+		while (tmp->next)
+			tmp = tmp->next;
+		tmp->next = new;
+	}
+	while (new->next)
+		new = new->next;
 }

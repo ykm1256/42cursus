@@ -1,29 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   ft_isalnum.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kyoon <kyoon@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/05/25 18:14:03 by kyoon             #+#    #+#             */
-/*   Updated: 2022/06/14 14:58:44 by kyoon            ###   ########.fr       */
+/*   Created: 2021/05/09 16:03:31 by kyoon             #+#    #+#             */
+/*   Updated: 2021/05/09 16:05:56 by kyoon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "./pushswap.h"
+#include "libft.h"
 
-void	ft_init(char argv**, t_stack_info info, t_stack stack)
+int	ft_isalnum(int c)
 {
-	
-}
-
-int	main(int argc, char *argv[])
-{
-	t_stack	*a;
-	t_stack	*b;
-	t_stack_info	info;
-
-
-
-	return 0;
+	if (ft_isalpha(c) || ft_isdigit(c))
+		return (1);
+	else
+		return (0);
 }

@@ -1,29 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   ft_memmove.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kyoon <kyoon@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/05/25 18:14:03 by kyoon             #+#    #+#             */
-/*   Updated: 2022/06/14 14:58:44 by kyoon            ###   ########.fr       */
+/*   Created: 2021/05/08 14:15:14 by kyoon             #+#    #+#             */
+/*   Updated: 2021/05/08 17:32:18 by kyoon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "./pushswap.h"
+#include "libft.h"
 
-void	ft_init(char argv**, t_stack_info info, t_stack stack)
+void	*ft_memmove(void *dst, const void *src, size_t len)
 {
-	
-}
-
-int	main(int argc, char *argv[])
-{
-	t_stack	*a;
-	t_stack	*b;
-	t_stack_info	info;
-
-
-
-	return 0;
+	if (dst < src)
+		ft_memcpy(dst, src, len);
+	else if (src < dst)
+		while (len--)
+			((unsigned char *)dst)[len] = ((unsigned char *)src)[len];
+	return (dst);
 }

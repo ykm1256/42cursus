@@ -1,29 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   ft_lstnew.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kyoon <kyoon@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/05/25 18:14:03 by kyoon             #+#    #+#             */
-/*   Updated: 2022/06/14 14:58:44 by kyoon            ###   ########.fr       */
+/*   Created: 2021/05/10 19:33:28 by kyoon             #+#    #+#             */
+/*   Updated: 2022/05/25 18:42:41 by kyoon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "./pushswap.h"
+#include "libft.h"
 
-void	ft_init(char argv**, t_stack_info info, t_stack stack)
+t_list	*ft_lstnew(void *content)
 {
-	
-}
+	t_list	*new;
 
-int	main(int argc, char *argv[])
-{
-	t_stack	*a;
-	t_stack	*b;
-	t_stack_info	info;
-
-
-
-	return 0;
+	new = malloc(sizeof(t_list) * 1);
+	if (!new)
+		return (0);
+	(*new).content = content;
+	(*new).next = 0;
+	return (new);
 }

@@ -1,29 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   ft_strncmp.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kyoon <kyoon@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/05/25 18:14:03 by kyoon             #+#    #+#             */
-/*   Updated: 2022/06/14 14:58:44 by kyoon            ###   ########.fr       */
+/*   Created: 2021/05/04 20:03:36 by kyoon             #+#    #+#             */
+/*   Updated: 2021/07/02 15:08:21 by kyoon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "./pushswap.h"
+#include "libft.h"
 
-void	ft_init(char argv**, t_stack_info info, t_stack stack)
+int	ft_strncmp(const char *s1, const char *s2, size_t n)
 {
-	
-}
+	size_t	i;
 
-int	main(int argc, char *argv[])
-{
-	t_stack	*a;
-	t_stack	*b;
-	t_stack_info	info;
-
-
-
-	return 0;
+	i = 0;
+	while (i < n)
+	{
+		if (s1[i] - s2[i] != 0)
+			return (((unsigned char *)s1)[i] - ((unsigned char *)s2)[i]);
+		if (s1[i] == '\0' && s2[i] == '\0')
+			break ;
+		i++;
+	}
+	return (0);
 }

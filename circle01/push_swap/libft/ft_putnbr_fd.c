@@ -1,29 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kyoon <kyoon@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/05/25 18:14:03 by kyoon             #+#    #+#             */
-/*   Updated: 2022/06/14 14:58:44 by kyoon            ###   ########.fr       */
+/*   Created: 2021/05/10 17:17:44 by kyoon             #+#    #+#             */
+/*   Updated: 2021/07/02 15:05:59 by kyoon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "./pushswap.h"
+#include "libft.h"
 
-void	ft_init(char argv**, t_stack_info info, t_stack stack)
+static void	ft_recur(unsigned int n, int fd)
 {
-	
+	if (n != 0)
+		ft_recur(n / 10, fd);
+	else
+		return ;
+	ft_putchar_fd(n % 10 + '0', fd);
 }
 
-int	main(int argc, char *argv[])
+void	ft_putnbr_fd(int n, int fd)
 {
-	t_stack	*a;
-	t_stack	*b;
-	t_stack_info	info;
+	unsigned int	num;
 
-
-
-	return 0;
+	if (n == 0)
+		ft_putchar_fd('0', fd);
+	else if (n < 0)
+	{
+		ft_putchar_fd('-', fd);
+		n *= -1;
+	}
+	num = n;
+	ft_recur(num, fd);
 }

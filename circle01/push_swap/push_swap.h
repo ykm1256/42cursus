@@ -1,29 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kyoon <kyoon@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/05/25 18:14:03 by kyoon             #+#    #+#             */
-/*   Updated: 2022/06/14 14:58:44 by kyoon            ###   ########.fr       */
+/*   Created: 2022/05/25 18:02:37 by kyoon             #+#    #+#             */
+/*   Updated: 2022/06/14 14:54:18 by kyoon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "./pushswap.h"
+#ifndef PUSH_SWAP_H
+# define PUSH_SWAP_H
 
-void	ft_init(char argv**, t_stack_info info, t_stack stack)
+# include <stdlib.h>
+# include <unistd.h>
+# include <stdio.h>
+# include <limits.h>
+# include "./libft/libft.h"
+
+typedef struct s_stack
 {
-	
-}
+	int	num;
+	struct s_stack	*prev;
+	struct s_stack	*next;
+}	t_stack;
 
-int	main(int argc, char *argv[])
+typedef struct s_stack_info
 {
-	t_stack	*a;
-	t_stack	*b;
-	t_stack_info	info;
+	struct s_stack	*head;
+	struct s_stack	*tail;
+}	t_stack_info
 
-
-
-	return 0;
-}
+#endif
