@@ -1,22 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstiter.c                                       :+:      :+:    :+:   */
+/*   ft_stacknew.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kyoon <kyoon@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/05/10 21:57:33 by kyoon             #+#    #+#             */
-/*   Updated: 2022/06/16 13:49:48 by kyoon            ###   ########.fr       */
+/*   Created: 2021/05/10 19:33:28 by kyoon             #+#    #+#             */
+/*   Updated: 2022/06/16 18:05:01 by kyoon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "push_swap.h"
 
-void	ft_lstiter(t_list *lst, void (*f)(void *))
+t_stack	*ft_newstack(int num)
 {
-	while (lst)
-	{
-		f(lst->content);
-		lst = lst->next;
-	}
+	t_stack	*new;
+
+	new = malloc(sizeof(t_stack) * 1);
+	if (!new)
+		return (0);
+	(*new).num = num;
+	(*new).next = 0;
+	return (new);
 }
