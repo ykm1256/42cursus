@@ -6,7 +6,7 @@
 /*   By: kyoon <kyoon@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/25 18:14:03 by kyoon             #+#    #+#             */
-/*   Updated: 2022/06/16 18:13:34 by kyoon            ###   ########.fr       */
+/*   Updated: 2022/06/19 21:29:26 by kyoon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,22 +52,25 @@ int	ft_isdigit_str(char *str)
 	return (1);
 }
 
-int	ft_init(char **str, t_stack_info **info, t_stack **stack)
+int	ft_init(char **str, t_stack_info **info)
 {
-	t_stack	*tmp;
+	t_stack *tmp;
+	t_stack *stack;
 
-	*stack = ft_newstack(ft_atoi(*(str++)));
 	*info = malloc(sizeof(t_stack_info) * 1);
-	if (!(*info) || !(*stack))
+	if (!(*info))
 	{
 		ft_free(info);
 		return (0);
 	}
-	(*info)->head = *stack;
-	tmp = (*stack)->next;
-	while (str)
+	while (*str)
 	{
-		tmp = ft_newstack(ft_atoi(*str));
+
+		if (!((*info)->head))
+		{
+			(*info)->head = ft_newstack(ft_atoi(*str));
+			tmp = ((*info)->head)->next;
+		}
 		if (!tmp || !ft_isdigit_str(*str))
 		{
 			ft_free(info);
@@ -75,26 +78,27 @@ int	ft_init(char **str, t_stack_info **info, t_stack **stack)
 		}
 		(*info)->tail = tmp;
 		tmp = tmp->next;
+		str++;
 	}
 	return (1);
 }
 
-int	main(int argc, char *argv[])
+int	main(int argc, char **argv)
 {
 	t_stack	*a;
 	t_stack	*b;
 	t_stack_info	*info;
 
-	ft_putnbr_fd(ft_stacklen(argv), 1);
 	while (*(++argv))
 	{
-		if(!ft_init(ft_split(*argv, ' '), &info, &a))
+		if(!ft_init(ft_split(*argv, ' '), &info))
 		{
 			write(2, "Error", 5);
 			return (0);
 		}
 	}
-	while (a->next)
+	a = info->head;
+	while (a)
 	{
 		ft_putnbr_fd(a->num, 1);
 		a = a->next;

@@ -1,23 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memmove.c                                       :+:      :+:    :+:   */
+/*   test.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kyoon <kyoon@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/05/08 14:15:14 by kyoon             #+#    #+#             */
-/*   Updated: 2022/06/19 21:13:09 by kyoon            ###   ########.fr       */
+/*   Created: 2022/06/19 19:52:37 by kyoon             #+#    #+#             */
+/*   Updated: 2022/06/19 21:17:50 by kyoon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "./libft/libft.h"
+#include <stdio.h>
 
-void	*ft_memmove(void *dst, const void *src, size_t len)
+int	main(void)
 {
-	if (dst < src)
-		ft_memcpy(dst, src, len);
-	else if (src < dst)
-		while (len--)
-			((unsigned char *)dst)[len] = ((unsigned char *)src)[len];
-	return (dst);
+	t_list *list;
+	int a = 1;
+	int *b = &a;
+	char c = 'a';
+	char *s = &c;
+	list = ft_lstnew(b);
+
+
+	printf("%d\n", *(int *)(list->content));
 }
