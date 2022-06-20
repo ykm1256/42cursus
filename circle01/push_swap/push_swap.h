@@ -28,10 +28,20 @@ typedef struct s_stack
 
 typedef struct s_stack_info
 {
-	struct s_stack	*head;
-	struct s_stack	*tail;
+	struct s_stack	*a_head;
+	struct s_stack	*a_tail;
+	struct s_stack	*b_head;
+	struct s_stack	*b_tail;
 }	t_stack_info;
 
 t_stack	*ft_newstack(int num);
+int	ft_init_info(t_stack_info **info);
+int	ft_ini(char **str, t_stack_info **info);
+int	ft_isdigit_str(char *str);
+void	ft_free(t_stack_info **info);
+int	ft_stacklen(char **str);
+void	ft_stkadd_back(t_stack *head, t_stack *tail, t_stack *new);
+t_stack	*ft_newstack(int num);
+
 
 #endif

@@ -12,6 +12,21 @@
 
 #include "push_swap.h"
 
+void	ft_stkadd_back(t_stack *head, t_stack *tail, t_stack *new)
+{
+	t_stack *tmp;
+
+	tmp = head;
+	if (!head || !new)
+		return ;
+	while (tmp->next != tail)
+		tmp = tmp->next;
+	tmp->next = new;
+	new->prev = tmp;
+	new->next = tail;
+	tail->prev = new;
+}
+
 t_stack	*ft_newstack(int num)
 {
 	t_stack	*new;
