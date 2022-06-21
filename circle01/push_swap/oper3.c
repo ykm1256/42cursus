@@ -1,20 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   test.c                                             :+:      :+:    :+:   */
+/*   oper3.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kyoon <kyoon@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/06/19 19:52:37 by kyoon             #+#    #+#             */
-/*   Updated: 2022/06/21 12:28:17 by kyoon            ###   ########.fr       */
+/*   Created: 2022/06/21 15:10:24 by kyoon             #+#    #+#             */
+/*   Updated: 2022/06/21 15:15:43 by kyoon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "./libft/libft.h"
-#include <stdio.h>
+#include "./push_swap.h"
 
-int	main(void)
+void	ft_rrotate(t_stack *head, t_stack *tail)
 {
-	printf("%d\n", ft_atoi("2147483649"));
-	printf("%d\n", atoi("2147483649"));
+	t_stack	*tmp;
+
+	tmp = ft_stkpop_back(tail);
+	ft_stkadd_front(head, tmp);
+}
+
+void	ft_rrotate_a(t_stack *head, t_stack *tail)
+{
+	ft_rrotate(head, tail);
+	write(1, "rra", 3);
+}
+
+void	ft_rrotate_b(t_stack *head, t_stack *tail)
+{
+	ft_rrotate(head, tail);
+	write(1, "rrb", 3);
 }

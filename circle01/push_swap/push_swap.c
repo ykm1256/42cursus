@@ -6,21 +6,21 @@
 /*   By: kyoon <kyoon@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/25 18:14:03 by kyoon             #+#    #+#             */
-/*   Updated: 2022/06/21 12:46:49 by kyoon            ###   ########.fr       */
+/*   Updated: 2022/06/21 16:24:07 by kyoon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "./push_swap.h"
 
-int	ft_stacklen(t_stack *stack)
+int	ft_stacklen(t_stack *head)
 {
 	int	i;
 
 	i = 0;
-	while (stack)
+	while (head)
 	{
 		i++;
-		stack = stack->next;
+		head = head->next;
 	}
 	return (i-2);
 }
@@ -130,8 +130,6 @@ int	ft_init_info(t_stack_info **info)
 
 int	main(int argc, char **argv)
 {
-	t_stack	*a;
-	t_stack	*b;
 	t_stack_info	*info;
 
 	if (!ft_init_info(&info))
@@ -154,6 +152,8 @@ int	main(int argc, char **argv)
 	}
 
 ///////////////////////////////////////////////////
+	t_stack *a;
+	t_stack *b;
 	int l = ft_stacklen(info->a_head);
 
 	int i = 0;

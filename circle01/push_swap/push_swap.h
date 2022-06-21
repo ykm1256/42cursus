@@ -6,7 +6,7 @@
 /*   By: kyoon <kyoon@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/25 18:02:37 by kyoon             #+#    #+#             */
-/*   Updated: 2022/06/21 11:50:03 by kyoon            ###   ########.fr       */
+/*   Updated: 2022/06/21 16:30:49 by kyoon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,7 @@ typedef struct s_stack_info
 	struct s_stack	*b_head;
 	struct s_stack	*b_tail;
 	int	*sorted;
+	int	len;
 }	t_stack_info;
 
 t_stack	*ft_newstack(int num);

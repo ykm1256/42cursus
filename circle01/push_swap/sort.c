@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_sort.c                                          :+:      :+:    :+:   */
+/*   sort.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kyoon <kyoon@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/21 11:23:24 by kyoon             #+#    #+#             */
-/*   Updated: 2022/06/21 12:00:25 by kyoon            ###   ########.fr       */
+/*   Updated: 2022/06/21 16:25:30 by kyoon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,6 +48,7 @@ int	ft_sort(t_stack_info *info)
 	tmp = (info->a_head)->next;
 	i = 0;
 	l = ft_stacklen(info->a_head);
+	info->len = l;
 	info->sorted = malloc(sizeof(int) * l);
 	if (!info->sorted)
 		return (0);
