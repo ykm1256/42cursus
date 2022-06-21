@@ -6,7 +6,7 @@
 /*   By: kyoon <kyoon@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/19 19:52:37 by kyoon             #+#    #+#             */
-/*   Updated: 2022/06/19 21:17:50 by kyoon            ###   ########.fr       */
+/*   Updated: 2022/06/21 12:28:17 by kyoon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,13 +15,6 @@
 
 int	main(void)
 {
-	t_list *list;
-	int a = 1;
-	int *b = &a;
-	char c = 'a';
-	char *s = &c;
-	list = ft_lstnew(b);
-
-
-	printf("%d\n", *(int *)(list->content));
+	printf("%d\n", ft_atoi("2147483649"));
+	printf("%d\n", atoi("2147483649"));
 }

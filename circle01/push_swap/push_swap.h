@@ -6,7 +6,7 @@
 /*   By: kyoon <kyoon@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/25 18:02:37 by kyoon             #+#    #+#             */
-/*   Updated: 2022/06/16 18:11:10 by kyoon            ###   ########.fr       */
+/*   Updated: 2022/06/21 11:50:03 by kyoon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,7 @@ typedef struct s_stack_info
 	struct s_stack	*a_tail;
 	struct s_stack	*b_head;
 	struct s_stack	*b_tail;
+	int	*sorted;
 }	t_stack_info;
 
 t_stack	*ft_newstack(int num);
@@ -39,9 +40,10 @@ int	ft_init_info(t_stack_info **info);
 int	ft_ini(char **str, t_stack_info **info);
 int	ft_isdigit_str(char *str);
 void	ft_free(t_stack_info **info);
-int	ft_stacklen(char **str);
+int	ft_stacklen(t_stack *stack);
 void	ft_stkadd_back(t_stack *head, t_stack *tail, t_stack *new);
 t_stack	*ft_newstack(int num);
+int	ft_sort(t_stack_info *info);
 
 
 #endif
