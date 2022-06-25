@@ -1,54 +1,54 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   oper.c                                             :+:      :+:    :+:   */
+/*   opers.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kyoon <kyoon@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/21 14:45:32 by kyoon             #+#    #+#             */
-/*   Updated: 2022/06/21 16:07:23 by kyoon            ###   ########.fr       */
+/*   Updated: 2022/06/25 14:32:26 by kyoon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "./push_swap.h"
 
-static void	ft_swap(t_stack *head)
+static void	ft_swap(t_deque *head)
 {
-	t_stack	*first;
-	t_stack	*second;
+	t_deque	*first;
+	t_deque	*second;
 
-	first = ft_stkpop_front(head);
-	second = ft_stkpop_front(head);
-	ft_stkadd_front(head, first);
-	ft_stkadd_front(head, second);
+	first = ft_deqpop_front(head);
+	second = ft_deqpop_front(head);
+	ft_deqadd_front(head, first);
+	ft_deqadd_front(head, second);
 }
 
-void	ft_swap_a(t_stack *head)
+void	ft_swap_a(t_deque *head)
 {
 	ft_swap(head);
-	write(1, "sa", 2);
+	write(1, "sa\n", 3);
 }
 
-void	ft_swap_b(t_stack *head)
+void	ft_swap_b(t_deque *head)
 {
 	ft_swap(head);
-	write(1, "b", 2);
+	write(1, "sb\n", 3);
 }
 
-void	ft_push_a(t_stack *a_head, t_stack *b_head)
+void	ft_push_a(t_deque *a_head, t_deque *b_head)
 {
-	t_stack	*tmp;
+	t_deque	*tmp;
 
-	tmp = ft_stkpop_front(b_head);
-	ft_stkadd_front(a_head, tmp);
-	write(1, "pa", 2);
+	tmp = ft_deqpop_front(b_head);
+	ft_deqadd_front(a_head, tmp);
+	write(1, "pa\n", 3);
 }
 
-void	ft_push_b(t_stack *a_head, t_stack *b_head)
+void	ft_push_b(t_deque *a_head, t_deque *b_head)
 {
-	t_stack	*tmp;
+	t_deque	*tmp;
 
-	tmp = ft_stkpop_front(a_head);
-	ft_stkadd_front(b_head, tmp);
-	write(1, "pb", 2);
+	tmp = ft_deqpop_front(a_head);
+	ft_deqadd_front(b_head, tmp);
+	write(1, "pb\n", 3);
 }

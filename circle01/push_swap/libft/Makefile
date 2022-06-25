@@ -6,11 +6,11 @@
 #    By: kyoon <kyoon@student.42seoul.kr>           +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/05/14 16:03:31 by kyoon             #+#    #+#              #
-#    Updated: 2022/06/06 21:20:07 by kyoon            ###   ########.fr        #
+#    Updated: 2022/06/25 13:13:10 by kyoon            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-CC = gcc
+CC = cc
 CFLAGS = -Wall -Wextra -Werror -c
 NAME = libft.a
 SOURCES = ./ft_memset.c\

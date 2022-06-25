@@ -1,33 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   oper3.c                                            :+:      :+:    :+:   */
+/*   rotate.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kyoon <kyoon@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/06/21 15:10:24 by kyoon             #+#    #+#             */
-/*   Updated: 2022/06/21 15:15:43 by kyoon            ###   ########.fr       */
+/*   Created: 2022/06/21 14:59:42 by kyoon             #+#    #+#             */
+/*   Updated: 2022/06/25 14:09:04 by kyoon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "./push_swap.h"
 
-void	ft_rrotate(t_stack *head, t_stack *tail)
+static void	ft_rotate(t_deque *head, t_deque *tail)
 {
-	t_stack	*tmp;
+	t_deque	*tmp;
 
-	tmp = ft_stkpop_back(tail);
-	ft_stkadd_front(head, tmp);
+	tmp = ft_deqpop_front(head);
+	ft_deqadd_back(tail, tmp);
 }
 
-void	ft_rrotate_a(t_stack *head, t_stack *tail)
+void	ft_rotate_a(t_deque *head, t_deque *tail)
 {
-	ft_rrotate(head, tail);
-	write(1, "rra", 3);
+	ft_rotate(head, tail);
+	write(1, "ra\n", 3);
 }
 
-void	ft_rrotate_b(t_stack *head, t_stack *tail)
+void	ft_rotate_b(t_deque *head, t_deque *tail)
 {
-	ft_rrotate(head, tail);
-	write(1, "rrb", 3);
+	ft_rotate(head, tail);
+	write(1, "rb\n", 3);
 }

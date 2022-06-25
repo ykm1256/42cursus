@@ -1,20 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   stkutil.c                                          :+:      :+:    :+:   */
+/*   dequtil.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kyoon <kyoon@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/10 19:33:28 by kyoon             #+#    #+#             */
-/*   Updated: 2022/06/21 15:15:50 by kyoon            ###   ########.fr       */
+/*   Updated: 2022/06/25 14:26:54 by kyoon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-t_stack *ft_stkpop_back(t_stack *tail)
+t_deque	*ft_deqpop_back(t_deque *tail)
 {
-	t_stack *tmp;
+	t_deque	*tmp;
 
 	tmp = tail->prev;
 	tail->prev = tmp->prev;
@@ -22,9 +22,9 @@ t_stack *ft_stkpop_back(t_stack *tail)
 	return (tmp);
 }
 
-t_stack	*ft_stkpop_front(t_stack *head)
+t_deque	*ft_deqpop_front(t_deque *head)
 {
-	t_stack *tmp;
+	t_deque	*tmp;
 
 	tmp = head->next;
 	head->next = tmp->next;
@@ -32,7 +32,7 @@ t_stack	*ft_stkpop_front(t_stack *head)
 	return (tmp);
 }
 
-void	ft_stkadd_front(t_stack *head, t_stack *new)
+void	ft_deqadd_front(t_deque *head, t_deque *new)
 {
 	new->next = head->next;
 	new->prev = head;
@@ -40,9 +40,9 @@ void	ft_stkadd_front(t_stack *head, t_stack *new)
 	new->next->prev = new;
 }
 
-void	ft_stkadd_back(t_stack *head, t_stack *tail, t_stack *new)
+void	ft_deqadd_back(t_deque *tail, t_deque *new)
 {
-	t_stack *tmp;
+	t_deque	*tmp;
 
 	tmp = tail->prev;
 	tmp->next = new;
@@ -51,11 +51,11 @@ void	ft_stkadd_back(t_stack *head, t_stack *tail, t_stack *new)
 	tail->prev = new;
 }
 
-t_stack	*ft_newstack(int num)
+t_deque	*ft_newdeque(int num)
 {
-	t_stack	*new;
+	t_deque	*new;
 
-	new = malloc(sizeof(t_stack) * 1);
+	new = malloc(sizeof(t_deque) * 1);
 	if (!new)
 		return (0);
 	(*new).num = num;
