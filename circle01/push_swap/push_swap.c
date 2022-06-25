@@ -6,7 +6,7 @@
 /*   By: kyoon <kyoon@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/25 18:14:03 by kyoon             #+#    #+#             */
-/*   Updated: 2022/06/25 15:23:22 by kyoon            ###   ########.fr       */
+/*   Updated: 2022/06/25 15:46:30 by kyoon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,7 +86,10 @@ int	main(int argc, char **argv)
 {
 	t_deque_info	*info;
 
-	if (argc <= 1 || !ft_init_info(&info))
+	if (argc <= 1)
+		return (0);
+
+	if (!ft_init_info(&info))
 		return (ft_print_err());
 	while (*(++argv))
 		if (!ft_init(ft_split(*argv, ' '), &info))
