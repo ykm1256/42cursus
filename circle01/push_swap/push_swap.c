@@ -6,7 +6,7 @@
 /*   By: kyoon <kyoon@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/25 18:14:03 by kyoon             #+#    #+#             */
-/*   Updated: 2022/06/25 15:09:50 by kyoon            ###   ########.fr       */
+/*   Updated: 2022/06/25 15:23:22 by kyoon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,17 +80,6 @@ int	ft_print_err(void)
 {
 	write(2, "Error\n", 6);
 	return (0);
-}
-
-void	print_deq(t_deque_info *info)
-{
-	t_deque *tmp;
-	tmp = info->a_head->next;
-	while (tmp != info->a_tail)
-	{
-		ft_putnbr_fd(tmp->num, 1);
-		tmp = tmp->next;
-	}
 }
 
 int	main(int argc, char **argv)
