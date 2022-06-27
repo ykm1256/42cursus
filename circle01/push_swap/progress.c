@@ -6,13 +6,13 @@
 /*   By: kyoon <kyoon@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/21 15:18:24 by kyoon             #+#    #+#             */
-/*   Updated: 2022/06/25 15:06:51 by kyoon            ###   ########.fr       */
+/*   Updated: 2022/06/27 17:12:23 by kyoon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "./push_swap.h"
 
-void	ft_move_b(t_deque_info *info)
+static void	ft_move_b(t_deque_info *info)
 {
 	int		piv1;
 	int		piv2;
@@ -67,7 +67,7 @@ static void	ft_move_a_sub(t_deque_info *info, int idx, int end)
 	ft_push_a(info->a_head, info->b_head);
 }
 
-void	ft_move_a(t_deque_info *info)
+static void	ft_move_a(t_deque_info *info)
 {
 	int	end;
 	int	n;
@@ -79,4 +79,10 @@ void	ft_move_a(t_deque_info *info)
 		ft_move_a_sub(info, ft_find_idx(info->b_head, info->b_tail, n), end);
 		end--;
 	}
+}
+
+void	ft_progress(t_deque_info *info)
+{
+	ft_move_b(info);
+	ft_move_a(info);
 }

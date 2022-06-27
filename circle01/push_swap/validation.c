@@ -6,11 +6,17 @@
 /*   By: kyoon <kyoon@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/25 11:37:44 by kyoon             #+#    #+#             */
-/*   Updated: 2022/06/25 14:28:50 by kyoon            ###   ########.fr       */
+/*   Updated: 2022/06/27 17:13:22 by kyoon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "./push_swap.h"
+
+int	ft_print_err(void)
+{
+	write(2, "Error\n", 6);
+	return (0);
+}
 
 int	ft_dequelen(t_deque *head)
 {
