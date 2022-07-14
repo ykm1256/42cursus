@@ -6,7 +6,7 @@
 /*   By: kyoon <kyoon@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/27 17:15:14 by kyoon             #+#    #+#             */
-/*   Updated: 2022/07/08 06:21:40 by kyoon            ###   ########.fr       */
+/*   Updated: 2022/07/14 18:37:03 by kyoon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,20 +28,69 @@
 
 typedef struct	s_mapinfo
 {
-	int		x_size;
+	int		r_size;
+	int		c_size;
 	char	**map;
 }				t_mapinfo;
 
-char	*map_read(char *f_name)
+int		ft_free(t_mapinfo *info, char *str)
+{
+	char **tmp;
+
+	tmp = info->map;
+	if (info)
+	{
+		if (tmp)
+		{
+			while (*tmp)
+			{
+				free(*tmp);
+				tmp++;
+			}
+			free(info->map);
+		}
+		free(info);
+	}
+	if (str)
+		free(str);
+	return (0);
+}
+
+int		map_init(t_mapinfo *info, char *str)
+{
+	char	**tmp;
+	int		col;
+	int		row;
+
+	col = 0;
+	row = 0;
+	tmp = ft_split(str, '\n');
+	info->map = tmp;
+	while (*tmp)
+	{
+		if (!col)
+			col = ft_strlen(*tmp);
+		else
+			if (col != ft_strlen(*tmp))
+				return ft_free(info, str);
+		tmp++;
+		row++;
+	}
+	info->r_size = row;
+	info->c_size = col;
+	return (1);
+}
+
+char	*map_read(char *f_name, t_mapinfo *info)
 {
 	char	*s;
 	char	*ret;
 	int		fd;
+	int		cnt;
 
-	s = malloc(1);
+	cnt = 0;
+	s = calloc(1, 1);
 	ret = calloc(1, 1);
-	if (!s)
-		return (0);
 	fd = open(f_name, O_RDONLY);
 	if (fd < 0)
 		return (0);
@@ -54,6 +103,43 @@ char	*map_read(char *f_name)
 	return (ret);
 }
 
+int		draw(t_mapinfo *info)
+{
+	void	*mlx;
+	void	*win;
+	void	*img_land;
+	void	*img_chr;
+	void	*img_wall;
+	int		img_width;
+	int		img_height;
+	int		i;
+	int		j;
+
+	i = 0;
+	mlx = mlx_init();
+	win = mlx_new_window(mlx, info->c_size * 32, info->r_size * 32, "test");
+	img_land = mlx_xpm_file_to_image(mlx, "./land.xpm", &img_width, &img_height);
+	img_chr = mlx_xpm_file_to_image(mlx, "./player.xpm", &img_width, &img_height);
+	img_wall = mlx_xpm_file_to_image(mlx, "./wall.xpm", &img_width, &img_height);
+	while (i < info->r_size)
+	{
+		j = 0;
+		while (j < info->c_size)
+		{
+			if ((info->map)[i][j] == '1')
+				mlx_put_image_to_window(mlx, win, img_wall, j * 32, i * 32);
+			else if ((info->map)[i][j] == 'P')
+				mlx_put_image_to_window(mlx, win, img_chr, j * 32, i * 32);
+			else
+				mlx_put_image_to_window(mlx, win, img_land, j * 32, i * 32);
+			j++;
+		}
+		i++;
+	}
+	mlx_loop(mlx);
+	return (0);
+}
+
 int		main(int argc, char **argv)
 {
 	t_mapinfo	*info;
@@ -61,44 +147,13 @@ int		main(int argc, char **argv)
 	char		*s;
 
 	info = malloc(sizeof(t_mapinfo) * 1);
-	s = map_read(argv[1]);
-	info->map = ft_split(s, '\n');
-	free(s);
-	tmp = info->map;
-
-	while (*tmp)
-	{
-		write(1, *tmp, ft_strlen(*tmp));
-		write(1, "\n", 1);
-		tmp++;
-	}
-
+	info->r_size = 0;
+	info->c_size = 0;
+	s = calloc(1, 1);
+	// 에러처리 필요
+	if (!map_init(info, map_read(argv[1], info)))
+		return (0);
+	draw(info);
 	return (0);
 }
 
-
-/*
-int		main(int argc, char **argv)
-{
-	void	*mlx;
-	void	*win;
-	void	*img_land;
-	void	*img_chr;
-	
-	void	*img_wall;
-	void	*img_col;
-	void	*img_exit;
-	int		img_width;
-	int		img_height;
-
-	mlx = mlx_init();
-	win = mlx_new_window(mlx, 500, 500, "test");
-	img_land = mlx_xpm_file_to_image(mlx, "./grass.xpm", &img_width, &img_height);
-	img_chr = mlx_xpm_file_to_image(mlx, "./player.xpm", &img_width, &img_height);
-	
-	mlx_put_image_to_window(mlx, win, img_land, 0, 0);
-	mlx_put_image_to_window(mlx, win, img_chr, 128,0);
-	mlx_loop(mlx);
-	return (0);
-}
-*/
