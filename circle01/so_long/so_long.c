@@ -6,7 +6,7 @@
 /*   By: kyoon <kyoon@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/27 17:15:14 by kyoon             #+#    #+#             */
-/*   Updated: 2022/07/14 18:37:03 by kyoon            ###   ########.fr       */
+/*   Updated: 2022/07/19 14:22:20 by kyoon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -110,6 +110,8 @@ int		draw(t_mapinfo *info)
 	void	*img_land;
 	void	*img_chr;
 	void	*img_wall;
+	void	*img_star;
+	void	*img_exit;
 	int		img_width;
 	int		img_height;
 	int		i;
@@ -117,21 +119,27 @@ int		draw(t_mapinfo *info)
 
 	i = 0;
 	mlx = mlx_init();
-	win = mlx_new_window(mlx, info->c_size * 32, info->r_size * 32, "test");
+	win = mlx_new_window(mlx, info->c_size * 64, info->r_size * 64, "test");
 	img_land = mlx_xpm_file_to_image(mlx, "./land.xpm", &img_width, &img_height);
 	img_chr = mlx_xpm_file_to_image(mlx, "./player.xpm", &img_width, &img_height);
-	img_wall = mlx_xpm_file_to_image(mlx, "./wall.xpm", &img_width, &img_height);
+	img_wall = mlx_xpm_file_to_image(mlx, "./wood.xpm", &img_width, &img_height);
+	img_star = mlx_xpm_file_to_image(mlx, "./star.xpm", &img_width, &img_height);
+	img_exit = mlx_xpm_file_to_image(mlx, "./exit.xpm", &img_width, &img_height);
 	while (i < info->r_size)
 	{
 		j = 0;
 		while (j < info->c_size)
 		{
 			if ((info->map)[i][j] == '1')
-				mlx_put_image_to_window(mlx, win, img_wall, j * 32, i * 32);
+				mlx_put_image_to_window(mlx, win, img_wall, j * 64, i * 64);
 			else if ((info->map)[i][j] == 'P')
-				mlx_put_image_to_window(mlx, win, img_chr, j * 32, i * 32);
+				mlx_put_image_to_window(mlx, win, img_chr, j * 64, i * 64);
+			else if	((info->map)[i][j] == 'S')
+				mlx_put_image_to_window(mlx, win, img_star, j * 64, i * 64);
+			else if	((info->map)[i][j] == 'E')
+				mlx_put_image_to_window(mlx, win, img_exit, j * 64, i * 64);
 			else
-				mlx_put_image_to_window(mlx, win, img_land, j * 32, i * 32);
+				mlx_put_image_to_window(mlx, win, img_land, j * 64, i * 64);
 			j++;
 		}
 		i++;
@@ -153,6 +161,7 @@ int		main(int argc, char **argv)
 	// 에러처리 필요
 	if (!map_init(info, map_read(argv[1], info)))
 		return (0);
+	write(1, "tttttttttttt", 10);
 	draw(info);
 	return (0);
 }
