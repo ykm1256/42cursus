@@ -6,7 +6,7 @@
 /*   By: kyoon <kyoon@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/23 13:44:53 by kyoon             #+#    #+#             */
-/*   Updated: 2022/07/23 19:17:15 by kyoon            ###   ########.fr       */
+/*   Updated: 2022/07/23 20:26:47 by kyoon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,6 +80,8 @@ int	map_validation(t_mapinfo *info, t_drawinfo *d_info, char *f_name)
 	if (open(f_name, O_RDONLY) < 0)
 		error_print("Map can't open.\n", info, d_info);
 	s = map_read(f_name, info);
+	if (!s)
+		error_print("Map read Error.\n", info, d_info);
 	if (info->cnt_player == 0)
 		error_print("There is no player", info, d_info);
 	if (1 < info->cnt_player)

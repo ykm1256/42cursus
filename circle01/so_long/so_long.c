@@ -6,7 +6,7 @@
 /*   By: kyoon <kyoon@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/27 17:15:14 by kyoon             #+#    #+#             */
-/*   Updated: 2022/07/23 18:07:01 by kyoon            ###   ########.fr       */
+/*   Updated: 2022/07/23 20:32:14 by kyoon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,6 +66,8 @@ t_mapinfo	*set_mapinfo(void)
 	t_mapinfo	*info;
 
 	info = malloc(sizeof(t_mapinfo) * 1);
+	if (!info)
+		return (0);
 	ft_bzero(info, sizeof(t_mapinfo));
 	return (info);
 }
@@ -79,11 +81,11 @@ int	main(int argc, char **argv)
 		error_print("Map name Error.\n", 0, 0);
 	info = set_mapinfo();
 	d_info = malloc(sizeof(t_drawinfo) * 1);
+	if (!info || !d_info)
+		error_print("Memory allocation Error.\n", info, d_info);
 	info->d_info = d_info;
-	info->r_size = 0;
-	info->c_size = 0;
 	if (!map_validation(info, d_info, argv[1]) || !draw_init(info, d_info))
-		return (ft_free(info, d_info));
+		error_print("Memory allocation Error.\n", info, d_info);
 	set_draw(info, d_info);
 	ft_free(info, d_info);
 	return (1);

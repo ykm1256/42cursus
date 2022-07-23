@@ -6,7 +6,7 @@
 /*   By: kyoon <kyoon@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/27 17:15:05 by kyoon             #+#    #+#             */
-/*   Updated: 2022/07/23 17:58:16 by kyoon            ###   ########.fr       */
+/*   Updated: 2022/07/23 20:08:19 by kyoon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,10 +18,8 @@
 # include <fcntl.h>
 # include <stdio.h>
 
-# define X_EVENT_KEY_PRESS		2
 # define X_EVENT_KEY_RELEASE	3
 # define X_EVENT_KEY_EXIT		17
-
 # define KEY_ESC				53
 # define KEY_W					13
 # define KEY_A					0

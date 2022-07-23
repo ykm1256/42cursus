@@ -6,7 +6,7 @@
 /*   By: kyoon <kyoon@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/23 13:37:50 by kyoon             #+#    #+#             */
-/*   Updated: 2022/07/23 19:17:41 by kyoon            ###   ########.fr       */
+/*   Updated: 2022/07/23 20:21:52 by kyoon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,9 +16,9 @@ int	ft_free(t_mapinfo *info, t_drawinfo *d_info)
 {
 	char	**tmp;
 
-	tmp = info->map;
 	if (info)
 	{
+		tmp = info->map;
 		if (tmp)
 		{
 			while (*tmp)
