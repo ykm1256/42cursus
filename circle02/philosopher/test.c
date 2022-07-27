@@ -37,29 +37,6 @@ void	*t_function(void *data)
 
 int	main(void)
 {
-	pthread_t	p_thread[2];
-	int			thr_id;
-	int			status;
-	char *p1 = "thread_1";
-	char *p2 = "thread_2";
-	char *pm = "thread_m";
-	sleep(1);
-	thr_id = pthread_create(&p_thread[0], NULL, t_function, (void *)p1);
-	if (thr_id < 0)
-	{
-		perror("thread create error : ");
-		exit(0);
-	}
-	thr_id = pthread_create(&p_thread[1], NULL, t_function, (void *)p2);
-	if (thr_id < 0)
-	{
-		perror("thread create error : ");
-		exit(0);
-	}
-	t_function((void *)pm);
-	pthread_join(p_thread[0], (void *)&status);
-	pthread_join(p_thread[1], (void *)&status);
-	printf("when end?\n");
-
+	int *test = malloc(1);
 	return (0);
 }

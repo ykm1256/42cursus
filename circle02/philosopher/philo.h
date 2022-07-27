@@ -20,26 +20,43 @@
 # include <pthread.h>
 # include <sys/time.h>
 
+typedef struct	s_setting
+{
+	int		must_eat;
+	int		*is_die;
+	int		*is_end;
+	pthread_mutex_t	*prt_mutex;
+	struct timeval	start_time;
+}		t_setting;
+
 typedef struct	s_fork
 {
 	pthread_mutex_t	mutex;
-	int				number;
+	int		number;
+	int		cnt_philo;
 }				t_fork;
 
 typedef struct	s_philo
 {
-	pthread_t		tid;
+	pthread_t	tid;
 	pthread_mutex_t	*prt_mutex;
-	t_fork			*forks;
-	int				number;
-	int				cnt_philo;
-	int				die;
-	int				eat;
-	int				sleep;
-	int				must_eat;
-	int				*is_die;
+	t_fork		*forks;
+	int		number;
+	int		cnt_philo;
+	int		die;
+	int		eat;
+	int		sleep;
+	int		must_eat;
+	int		*is_die;
+	int		*is_end;
+	int		cnt_eat;
 	struct timeval	last_eat;
 	struct timeval	start_time;
 }				t_philo;
+
+t_setting	*setting_free(t_setting *set);
+int	fork_free(t_fork *fork);
+int	philo_free(t_philo *philo);
+
 
 #endif
